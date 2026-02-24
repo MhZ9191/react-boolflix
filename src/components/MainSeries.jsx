@@ -1,16 +1,16 @@
 import { useSearch } from "../contexts/SearchContext";
 import CardFilm from "../components/CardFilm";
-export default function MainMovie() {
-  const { dataValues } = useSearch();
+export default function MainSeries() {
+  const { dataTVs } = useSearch();
   return (
     <main>
       <section>
         <div>
-          <h2>FILM</h2>
-          {dataValues.map(
+          <h2>SERIE TV</h2>
+          {dataTVs.map(
             ({
               id,
-              title,
+              original_name,
               original_title,
               original_language,
               vote_average,
@@ -18,9 +18,9 @@ export default function MainMovie() {
               return (
                 <CardFilm
                   key={id}
-                  title={title}
+                  title={name}
                   vote_average={vote_average}
-                  original_title={original_title}
+                  original_title={original_name}
                   original_language={original_language}
                 />
               );

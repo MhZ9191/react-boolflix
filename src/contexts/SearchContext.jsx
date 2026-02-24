@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
 const ApiKey = import.meta.env.VITE_API_KEY;
 const ApiUrl = import.meta.env.VITE_API_URL;
 
@@ -12,6 +11,8 @@ function SearchProvider({ children }) {
   const [searchInput, setSearchInput] = useState("");
   //STATE FOR FETCH
   const [dataValues, setDataValues] = useState([]);
+  //STATE SERIE TV
+  const [dataTVs, setDataTVs] = useState([]);
 
   //! FUNCTION SET SUBMIT
   const setSubmit = (e) => {
@@ -24,7 +25,7 @@ function SearchProvider({ children }) {
     setSearchInput(e.target.value);
   };
 
-  //! CALL API
+  //! CALL API MOVIES
   const fetchData = () => {
     const ApiUrlSet = new URL(ApiUrl + "/movie");
     ApiUrlSet.searchParams.set("api_key", ApiKey);
@@ -36,7 +37,21 @@ function SearchProvider({ children }) {
       });
   };
 
+  //! CALL API TVs
+  const fetchDataTVs = () => {
+    const ApiUrlSet = new URL(ApiUrl + "/tv");
+    ApiUrlSet.searchParams.set("api_key", ApiKey);
+    ApiUrlSet.searchParams.set("query", searchSubmit);
+    fetch(ApiUrlSet.href)
+      .then((res) => res.json())
+      .then((data) => {
+        setDataTVs(data.results);
+      });
+  };
+
+  //useEffect
   useEffect(fetchData, [searchSubmit]);
+  useEffect(fetchDataTVs, [searchSubmit]);
 
   const searchObject = {
     setInput,
@@ -44,6 +59,7 @@ function SearchProvider({ children }) {
     setSubmit,
     searchSubmit,
     dataValues,
+    dataTVs,
   };
   return (
     <SearchContext.Provider value={searchObject}>

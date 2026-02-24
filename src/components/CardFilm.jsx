@@ -28,7 +28,7 @@ export default function CardFilm({
       <div>{title}</div>
       <div>{vote_average}</div>
       <div className="image-div-flag">
-        <img src={imageFlag} alt={title} />
+        <img src={imageFlag} alt={title} title={original_language} />
       </div>
       <div>{original_title}</div>
     </div>
