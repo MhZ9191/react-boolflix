@@ -1,5 +1,6 @@
 import { flags } from "../assets/data/dataFlag";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useCard } from "../contexts/CardContext";
 export default function CardFilm({
   title,
   vote_average,
@@ -7,6 +8,8 @@ export default function CardFilm({
   original_language,
   poster,
 }) {
+  const { averageStar } = useCard();
+
   const urlForImage = "https://image.tmdb.org/t/p/w342/";
   let imageFlag = "noFlag.png";
   switch (original_language) {
@@ -26,23 +29,7 @@ export default function CardFilm({
       break;
   }
 
-  const averageStar = () => {
-    const average = Math.floor(vote_average / 2);
-    return (
-      <div className="star-average">
-        {[...Array(5)].map((elem, ind) => (
-          <span key={ind}>
-            {ind < average ? (
-              <i class="bi bi-star-fill"></i>
-            ) : (
-              <i className="bi bi-star"></i>
-            )}
-          </span>
-        ))}
-      </div>
-    );
-  };
-
+  const currentStar = averageStar(vote_average);
   return (
     // <div>
     //   <figure>
@@ -56,7 +43,7 @@ export default function CardFilm({
     //
     <div className="card-div">
       <div>{title}</div>
-      <div>{averageStar()}</div>
+      <div>{currentStar}</div>
       <div className="image-div-flag">
         <img src={imageFlag} alt={title} title={original_language} />
       </div>
