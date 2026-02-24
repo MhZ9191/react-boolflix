@@ -10,7 +10,7 @@ function CardProvider({ children }) {
         {[...Array(5)].map((elem, ind) => (
           <span key={ind}>
             {ind < average ? (
-              <i class="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
             ) : (
               <i className="bi bi-star"></i>
             )}
@@ -30,4 +30,4 @@ function useCard() {
   return useContext(CardContext);
 }
 
-export { CardProvider };
+export { CardProvider, useCard };
