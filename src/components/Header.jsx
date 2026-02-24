@@ -17,7 +17,6 @@ export default function Header() {
               <button>Search</button>
             </form>
           </div>
-          <div>{searchSubmit}</div>
         </div>
       </section>
     </header>

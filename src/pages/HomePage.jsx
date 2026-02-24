@@ -1,4 +1,5 @@
 import { useSearch } from "../contexts/SearchContext";
+import CardFilm from "../components/CardFilm";
 
 export default function HomePage() {
   const { dataValues } = useSearch();
@@ -6,9 +7,25 @@ export default function HomePage() {
     <main>
       <section>
         <div>
-          {dataValues.map((el) => {
-            return <div key={el.id}>{el.title}</div>;
-          })}
+          {dataValues.map(
+            ({
+              id,
+              title,
+              original_title,
+              original_language,
+              vote_average,
+            }) => {
+              return (
+                <CardFilm
+                  key={id}
+                  title={title}
+                  vote_average={vote_average}
+                  original_title={original_title}
+                  original_language={original_language}
+                />
+              );
+            },
+          )}
         </div>
       </section>
     </main>
