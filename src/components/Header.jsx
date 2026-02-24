@@ -1,13 +1,13 @@
 import { useSearch } from "../contexts/SearchContext";
 
 export default function Header() {
-  const { setInput, searchInput } = useSearch();
+  const { setInput, searchInput, setSubmit, searchSubmit } = useSearch();
   return (
     <header>
       <section>
         <div>
           <div>
-            <form>
+            <form onSubmit={setSubmit}>
               <input
                 onChange={setInput}
                 name="search-bar"
@@ -17,7 +17,7 @@ export default function Header() {
               <button>Search</button>
             </form>
           </div>
-          <div>{searchInput}</div>
+          <div>{searchSubmit}</div>
         </div>
       </section>
     </header>
