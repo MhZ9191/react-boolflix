@@ -1,3 +1,9 @@
+import { useSearch } from "../contexts/SearchContext";
 export default function Header() {
-  return <>HELLO WORLD</>;
+  const { test } = useSearch();
+  return (
+    <>
+      <h1>{test}</h1>
+    </>
+  );
 }
