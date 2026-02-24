@@ -11,13 +11,15 @@ export default function MainSeries() {
             ({
               id,
               original_name,
-              original_title,
+              name,
               original_language,
               vote_average,
+              poster_path,
             }) => {
               return (
                 <CardFilm
                   key={id}
+                  poster={poster_path}
                   title={name}
                   vote_average={vote_average}
                   original_title={original_name}

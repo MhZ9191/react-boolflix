@@ -14,6 +14,7 @@ export default function MainMovie() {
               original_title,
               original_language,
               vote_average,
+              poster_path,
             }) => {
               return (
                 <CardFilm
@@ -22,6 +23,7 @@ export default function MainMovie() {
                   vote_average={vote_average}
                   original_title={original_title}
                   original_language={original_language}
+                  poster={poster_path}
                 />
               );
             },

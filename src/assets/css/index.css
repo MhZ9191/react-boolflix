@@ -16,3 +16,9 @@
 .image-div-flag img {
   width: 100%;
 }
+
+.not-found {
+  width: 342px;
+  height: 513px;
+  object-fit: cover;
+}
