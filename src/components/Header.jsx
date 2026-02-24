@@ -1,9 +1,25 @@
 import { useSearch } from "../contexts/SearchContext";
+
 export default function Header() {
-  const { test } = useSearch();
+  const { setInput, searchInput } = useSearch();
   return (
-    <>
-      <h1>{test}</h1>
-    </>
+    <header>
+      <section>
+        <div>
+          <div>
+            <form>
+              <input
+                onChange={setInput}
+                name="search-bar"
+                type="text"
+                placeholder="Type here..."
+              />
+              <button>Search</button>
+            </form>
+          </div>
+          <div>{searchInput}</div>
+        </div>
+      </section>
+    </header>
   );
 }
