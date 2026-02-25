@@ -13,10 +13,13 @@ function SearchProvider({ children }) {
   const [dataValues, setDataValues] = useState([]);
   //STATE SERIE TV
   const [dataTVs, setDataTVs] = useState([]);
+  //STATE LOADING
+  const [isLoading, setIsLoading] = useState(false);
 
   //! FUNCTION SET SUBMIT
   const setSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setSearchSubmit(searchInput);
   };
 
@@ -34,6 +37,7 @@ function SearchProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         setDataValues(data.results);
+        setIsLoading(false);
       });
   };
 
@@ -60,6 +64,7 @@ function SearchProvider({ children }) {
     searchSubmit,
     dataValues,
     dataTVs,
+    isLoading,
   };
   return (
     <SearchContext.Provider value={searchObject}>
