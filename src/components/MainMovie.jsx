@@ -5,29 +5,31 @@ export default function MainMovie() {
   return (
     <main>
       <section>
-        <div>
+        <div className="div-title">
           <h2>FILM</h2>
-          {dataValues.map(
-            ({
-              id,
-              title,
-              original_title,
-              original_language,
-              vote_average,
-              poster_path,
-            }) => {
-              return (
-                <CardFilm
-                  key={id}
-                  title={title}
-                  vote_average={vote_average}
-                  original_title={original_title}
-                  original_language={original_language}
-                  poster={poster_path}
-                />
-              );
-            },
-          )}
+          <div className="div-wrap">
+            {dataValues.map(
+              ({
+                id,
+                title,
+                original_language,
+                vote_average,
+                poster_path,
+                overview,
+              }) => {
+                return (
+                  <CardFilm
+                    key={id}
+                    overview={overview}
+                    title={title}
+                    vote_average={vote_average}
+                    original_language={original_language}
+                    poster={poster_path}
+                  />
+                );
+              },
+            )}
+          </div>
         </div>
       </section>
     </main>

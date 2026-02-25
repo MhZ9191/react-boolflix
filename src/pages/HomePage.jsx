@@ -3,8 +3,12 @@ import MainSeries from "../components/MainSeries";
 export default function HomePage() {
   return (
     <>
-      <MainMovie />
-      <MainSeries />
+      <section className="sec-main">
+        <div className="div-main">
+          <MainMovie />
+          <MainSeries />
+        </div>
+      </section>
     </>
   );
 }

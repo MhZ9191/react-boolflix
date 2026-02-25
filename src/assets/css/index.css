@@ -3,9 +3,72 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  background-color: #141414;
+  color: #fe2716;
+}
+/* HEAD */
 
-.card-div {
-  margin: 20px 0;
+.sec-head {
+  padding: 40px;
+}
+
+.div-head {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.div-head h1 {
+  font-size: 64px;
+  text-shadow: 1px 1px 30px #fe2716;
+}
+
+.div-head h1:first-child {
+  display: none;
+}
+
+.button-search {
+  padding: 5px;
+  border: 1px transparent solid;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-search:hover {
+  border: 1px #fe2716 solid;
+}
+
+.search-form input {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.search-form input:focus-visible {
+  outline-style: inset;
+  outline-width: 1px;
+  outline-color: #fe2716;
+}
+
+/*  */
+
+.div-title > h2 {
+  font-size: 32px;
+  text-align: center;
+  text-shadow: 1px 1px 30px #fe2716;
+}
+
+.search-form {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .image-div-flag {
@@ -21,4 +84,69 @@
   width: 342px;
   height: 513px;
   object-fit: cover;
+  border: 1px black solid;
+}
+
+.card-div {
+  display: none;
+  padding: 15px;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-item:hover .card-poster {
+  display: none;
+}
+
+.card-item:hover .card-div {
+  display: flex;
+  background-color: #242222;
+  height: 511px;
+}
+
+.sec-main {
+  padding: 10px;
+}
+
+.div-main {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-item {
+  margin: 20px auto;
+  width: 342px;
+  height: 513px;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  border: 1px transparent solid;
+}
+
+.div-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+/* MEDIA */
+
+@media screen and (min-width: 678px) {
+  .div-title > h2 {
+    font-size: 48px;
+  }
+  .div-head h1:nth-child(2) {
+    display: none;
+  }
+  .div-head h1:first-child {
+    display: flex;
+  }
 }

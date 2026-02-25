@@ -7,6 +7,7 @@ export default function CardFilm({
   original_title,
   original_language,
   poster,
+  overview,
 }) {
   const { averageStar } = useCard();
 
@@ -31,23 +32,27 @@ export default function CardFilm({
 
   const currentStar = averageStar(vote_average);
   return (
-    // <div>
-    //   <figure>
-    //     {poster ? (
-    //       <img src={urlForImage + poster} alt={title} />
-    //     ) : (
-    //       <img className="not-found" src="notFound.png" alt={title} />
-    //     )}
-    //   </figure>
-    // </div>
-    //
-    <div className="card-div">
-      <div>{title}</div>
-      <div>{currentStar}</div>
-      <div className="image-div-flag">
-        <img src={imageFlag} alt={title} title={original_language} />
+    <>
+      <div className="card-item">
+        <div className="card-poster">
+          <figure>
+            {poster ? (
+              <img src={urlForImage + poster} alt={title} />
+            ) : (
+              <img className="not-found" src="notFound.png" alt={title} />
+            )}
+          </figure>
+        </div>
+
+        <div className="card-div">
+          <div>{title}</div>
+          <div>{currentStar}</div>
+          <div className="image-div-flag">
+            <img src={imageFlag} alt={title} title={original_language} />
+          </div>
+          <div className="scroll">{overview}</div>
+        </div>
       </div>
-      <div>{original_title}</div>
-    </div>
+    </>
   );
 }
